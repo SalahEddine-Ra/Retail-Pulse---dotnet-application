@@ -6,7 +6,8 @@ namespace RetailPulse.Services
     public interface ISalesService
     {
         // Pure inputs: Just the ID and the Quantity
-        Task<Sale> ProcessSaleAsync(int productId, int quantity);
+// Change the line to this:
+        Task<Sale> ProcessSaleAsync(int productId, int quantity, int? userId);
         Task<List<Sale>> GetSalesHistoryAsync();
     }
 }

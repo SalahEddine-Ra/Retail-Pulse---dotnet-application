@@ -14,38 +14,43 @@ namespace RetailPulse.Services
             _context = context;
         }
 
-        public async Task<Sale> ProcessSaleAsync(int productId, int quantity)
+        //===========================
+        // Process a sale
+        //===========================
+        
+        public async Task<Sale> ProcessSaleAsync(int productId, int quantity, int? userId)
         {
-            var productExisted = await _context.Products.FindAsync(productId);
-            if (productExisted == null)
-            {
-                throw new Exception("Product not found!");
-            }
+            var product = await _context.Products.FindAsync(productId);
+            if (product == null) throw new Exception("Product not found");
 
-            if (productExisted.Stock < quantity)
-            {
-                throw new Exception("Not enough stock!");
-            }
+            if (product.Stock < quantity) throw new Exception("Not enough stock");
 
-            productExisted.Stock = productExisted.Stock - quantity;
+            product.Stock -= quantity;
 
+            // Create Sale Record with User ID
             var sale = new Sale
             {
                 ProductId = productId,
                 Quantity = quantity,
-                TotalPrice = productExisted.Price * quantity,
-                SoldAt = DateTime.UtcNow
+                TotalPrice = product.Price * quantity,
+                SoldAt = DateTime.UtcNow,
+                UserId = userId 
             };
 
             _context.Sales.Add(sale);
             await _context.SaveChangesAsync();
             return sale;
-
         }
+
+        //===========================
+        // Get Sales History
+        //===========================
+
         public async Task<List<Sale>> GetSalesHistoryAsync()
         {
             return await _context.Sales
                 .Include(s => s.Product)
+                .Include(s => s.User)
                 .OrderByDescending(s => s.SoldAt)
                 .ToListAsync();
         }

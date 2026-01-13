@@ -3,13 +3,17 @@ using RetailPulse.Services.Interfaces;
 using RetailPulse.Models;
 using Microsoft.AspNetCore.Mvc;
 using RetailPulse.DTOs;
+using Microsoft.AspNetCore.Authorization;
+using RetailPulse.Constants;
 
 namespace RetailPulse.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ProductsController : ControllerBase
     {
+        // ===== Dependency Injection =====
         private readonly IInventoryService _service;
 
         public ProductsController(IInventoryService service)
@@ -17,7 +21,7 @@ namespace RetailPulse.Controllers
             _service = service;
         }
 
-        // Get All products
+        // ===== Get All Products =====
         [HttpGet]
         public async Task<IActionResult> GetAllProducts()
         {
@@ -34,8 +38,8 @@ namespace RetailPulse.Controllers
             return Ok(responce);
         }
 
-
-        // Add a product
+        // ===== Add a Product =====
+        [Authorize(Roles = AppRole.Admin)]
         [HttpPost]
         public async Task<IActionResult> AddProductAsync([FromBody] CreateProductRequest request)
         {
@@ -61,8 +65,8 @@ namespace RetailPulse.Controllers
             return CreatedAtAction(nameof(GetAllProducts), new { id = response.Id }, response);
         }
 
-
-        // Modify a product
+        // ===== Update a Product =====
+        [Authorize(Roles = AppRole.Admin)]
         [HttpPut("{Id}")]
         public async Task<IActionResult> UpdateProduct(int Id, [FromBody] CreateProductRequest request)
         {
@@ -93,8 +97,8 @@ namespace RetailPulse.Controllers
 
         }
 
-
-        // Delete a product
+        // ===== Delete a Product =====
+        [Authorize(Roles = AppRole.Admin)]
         [HttpDelete("{Id}")]
         public async Task<IActionResult> DeleteProduct(int Id)
         {

@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "GXOMe3k2Zuk=",
+  "dgSpecHash": "0DMxgyMN2AA=",
   "success": true,
   "projectFilePath": "/home/senpai/Documents/Compressed/learning/ASP.NET learning/re-start/RetailPulse/RetailPulse.csproj",
   "expectedPackageFiles": [
     "/home/senpai/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/home/senpai/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/home/senpai/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/10.0.1/microsoft.aspnetcore.authentication.jwtbearer.10.0.1.nupkg.sha512",
     "/home/senpai/.nuget/packages/microsoft.aspnetcore.openapi/10.0.1/microsoft.aspnetcore.openapi.10.0.1.nupkg.sha512",
     "/home/senpai/.nuget/packages/microsoft.build/17.7.2/microsoft.build.17.7.2.nupkg.sha512",
     "/home/senpai/.nuget/packages/microsoft.build.framework/17.14.28/microsoft.build.framework.17.14.28.nupkg.sha512",
@@ -28,6 +29,8 @@
     "/home/senpai/.nuget/packages/microsoft.identitymodel.abstractions/8.15.0/microsoft.identitymodel.abstractions.8.15.0.nupkg.sha512",
     "/home/senpai/.nuget/packages/microsoft.identitymodel.jsonwebtokens/8.15.0/microsoft.identitymodel.jsonwebtokens.8.15.0.nupkg.sha512",
     "/home/senpai/.nuget/packages/microsoft.identitymodel.logging/8.15.0/microsoft.identitymodel.logging.8.15.0.nupkg.sha512",
+    "/home/senpai/.nuget/packages/microsoft.identitymodel.protocols/8.0.1/microsoft.identitymodel.protocols.8.0.1.nupkg.sha512",
+    "/home/senpai/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/8.0.1/microsoft.identitymodel.protocols.openidconnect.8.0.1.nupkg.sha512",
     "/home/senpai/.nuget/packages/microsoft.identitymodel.tokens/8.15.0/microsoft.identitymodel.tokens.8.15.0.nupkg.sha512",
     "/home/senpai/.nuget/packages/microsoft.net.stringtools/17.14.28/microsoft.net.stringtools.17.14.28.nupkg.sha512",
     "/home/senpai/.nuget/packages/microsoft.openapi/2.3.0/microsoft.openapi.2.3.0.nupkg.sha512",
