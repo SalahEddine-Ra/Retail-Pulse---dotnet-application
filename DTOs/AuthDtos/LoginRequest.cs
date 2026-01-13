@@ -1,0 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+
+namespace RetailPulse.DTOs.AuthDtos
+{
+    public class LoginRequest
+    {
+        [Required]
+        [EmailAddress]
+        public string Email {get; set;}
+
+        [Required]
+        public string password {get; set;}
+    }
+}
