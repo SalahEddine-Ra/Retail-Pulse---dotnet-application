@@ -92,4 +92,7 @@ publish/
 
 # Secrets
 secrets.json
+#ignore the appsettings.json file to avoid committing sensitive information
 appsettings.json
+
+appsettings.Development.json 
